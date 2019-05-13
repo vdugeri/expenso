@@ -6,20 +6,21 @@
         <span class="modal__close" @click="closeModal">&times;</span>
       </div>
       <div class="modal__body">
-        <p>Some text in the Modal Body</p>
-        <p>Some other text...</p>
+        <Expense />
       </div>
-      <div class="modal__footer">
-        <h3>Modal Footer</h3>
-      </div>
+      <div class="modal__footer"></div>
     </div>
   </div>
 </template>
 
 <script>
+import Expense from "@/components/ExpenseForm";
 export default {
   props: {
     closeModal: Function
+  },
+  components: {
+    Expense
   }
 };
 </script>
@@ -32,7 +33,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.8);
   width: 100vw;
   height: 100vh;
 
@@ -41,6 +42,7 @@ export default {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    border-bottom: 1px solid #ccc;
 
     & h2 {
       margin-top: 0.5rem;
@@ -69,10 +71,11 @@ export default {
     position: relative;
     background-color: #fefefe;
     margin: auto;
-    padding: 0;
+    padding-bottom: 1rem;
     border: 1px solid #888;
     width: 40%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
     animation-name: animatetop;
     animation-duration: 0.4s;
   }

@@ -31,6 +31,7 @@ export default {
   outline: 0;
   border-radius: 4px;
   font-weight: 400;
+  cursor: pointer;
 }
 
 .btn:active {

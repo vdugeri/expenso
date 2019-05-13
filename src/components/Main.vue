@@ -1,6 +1,9 @@
 <template>
   <div class="main">
-    <Button :label="label" :handleClick="handleClick" />
+    <div class="right">
+      <Button :label="label" :handleClick="displayModal" />
+    </div>
+
     <Table :headers="tableHeaders" :data="tableData" />
     <Modal v-if="showModal" :closeModal="closeModal" />
   </div>
@@ -17,34 +20,27 @@ export default {
     Modal
   },
 
+  mounted() {
+    const expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+    this.tableData = expenses.map(expense => {
+      expense.date = new Date(expense.date).toLocaleDateString();
+
+      return expense;
+    });
+  },
+
   data() {
     return {
-      label: "Click Me",
-      showModal: true,
-      tableHeaders: ["Company", "Contact", "Country"],
-      tableData: [
-        {
-          company: "Alfreds Futterkiste",
-          contact: "Maria Anders",
-          country: "Germany"
-        },
-        {
-          company: "Berglunds snabbköp",
-          contact: "Christina Berglund",
-          country: "Sweden"
-        },
-        {
-          company: "Centro comercial Moctezuma",
-          contact: "Francisco Chang",
-          country: "Mexico"
-        }
-      ]
+      label: "New Expense",
+      showModal: false,
+      tableHeaders: ["Date", "Amount Spent"],
+      tableData: []
     };
   },
 
   methods: {
-    handleClick() {
-      console.log("button clicked");
+    displayModal() {
+      this.showModal = true;
     },
     closeModal() {
       this.showModal = false;
@@ -58,5 +54,14 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 2rem;
+  width: 80vw;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 20rem;
+  align-self: flex-end;
 }
 </style>
