@@ -6,6 +6,7 @@
 
 <script>
 import Avatar from "@/components/Avatar";
+import defaultAvatar from "@/assets/default-avatar.png";
 export default {
   components: {
     Avatar
@@ -13,7 +14,7 @@ export default {
   data() {
     return {
       user: {
-        image: "http://lorempixel.com/400/200/sports/8/"
+        image: defaultAvatar
       }
     };
   }

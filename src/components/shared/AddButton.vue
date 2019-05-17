@@ -1,6 +1,17 @@
 <template>
-  <div class="round-btn btn-add">&#43;</div>
+  <div @click.prevent="handleClick" class="round-btn btn-add">&#43;</div>
 </template>
+
+<script>
+export default {
+  props: {
+    handleClick: {
+      type: Function,
+      required: true
+    }
+  }
+};
+</script>
 
 <style lang="scss">
 .round-btn {

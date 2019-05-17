@@ -5,7 +5,7 @@
       <div class="content__card">
         <div class="content__card--backlog">
           <h2>Backlog</h2>
-          <AddButton />
+          <AddButton :handleClick="openModal" />
         </div>
         <Card />
       </div>
@@ -66,6 +66,7 @@
         <Card></Card>
       </div>
     </div>
+    <BudgetForm :close="closeModal" v-if="showModal" />
   </div>
 </template>
 
@@ -75,6 +76,7 @@ import AddButton from "@/components/shared/AddButton";
 import MonthStrip from "@/components/MonthStrip";
 import ProgressBar from "vue-simple-progress";
 import Item from "@/components/BudgetItem";
+import BudgetForm from "@/components/NewBudgetItem";
 
 export default {
   components: {
@@ -82,7 +84,8 @@ export default {
     AddButton,
     MonthStrip,
     ProgressBar,
-    Item
+    Item,
+    BudgetForm
   },
 
   mounted() {
@@ -136,7 +139,8 @@ export default {
   },
 
   methods: {
-    displayModal() {
+    openModal() {
+      console.log("here");
       this.showModal = true;
     },
     closeModal() {
