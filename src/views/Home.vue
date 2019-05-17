@@ -1,18 +1,18 @@
 <template>
   <div class="home">
-    <Sidebar />
+    <!-- <Sidebar /> -->
     <Main />
   </div>
 </template>
 
 <script>
-import Sidebar from "@/components/Sidebar";
+// import Sidebar from "@/components/Sidebar";
 import Main from "@/components/Main";
 
 export default {
   name: "home",
   components: {
-    Sidebar,
+    // Sidebar,
     Main
   }
 };
@@ -21,5 +21,6 @@ export default {
 <style lang="scss">
 .home {
   display: flex;
+  width: 100vw;
 }
 </style>

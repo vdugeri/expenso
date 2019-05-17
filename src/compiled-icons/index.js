@@ -1,0 +1,12 @@
+/* eslint-disable */
+require('./basket')
+require('./bin')
+require('./check-square')
+require('./circle-left')
+require('./circle-right')
+require('./cog')
+require('./home')
+require('./map2')
+require('./pencil')
+require('./star-empty')
+require('./warning')
